@@ -1,0 +1,14 @@
+{
+  "name": "ceylon3d-orchestrator",
+  "private": true,
+  "scripts": {
+    "setup:all": "npm --prefix frontend/landing install && npm --prefix frontend/shop install",
+    "dev:backend": "cd backend && mvn spring-boot:run",
+    "dev:landing": "npm --prefix frontend/landing run dev -- --port 3000",
+    "dev:shop": "npm --prefix frontend/shop run dev -- --port 5175",
+    "dev": "concurrently -n BACKEND,LANDING,SHOP -c yellow,cyan,green \"npm run dev:backend\" \"npm run dev:landing\" \"npm run dev:shop\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
